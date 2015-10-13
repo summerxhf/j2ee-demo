@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+       <!-- 总管理类 lazy-init='false' 容器启动执行调度  -->
+       <bean id="ocrSchedule" lazy-init="false" autowire="no"
+             class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+              <property name="triggers">
+                     <list>
+                            <ref bean="startProjectJobTrigger"/>
+                     </list>
+              </property>
+       </bean>
+
+       <bean id="startProjectJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+              <property name="jobDetail">
+                     <ref bean="startProject"/>
+              </property>
+              <!-- cron表达式 -->
+              <property name="cronExpression">
+                     <!-- 每五秒执行一次-->
+                     <value>0/5 * * * * ?</value>
+              </property>
+       </bean>
+
+       <!-- 依赖注入-->
+       <bean name="startProject" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+              <property name="jobClass" value="com.hf.springQuartz.demo.StartProjectDemo" />
+              <property name="group" value="quartz-demo" />
+              <property name="Durability" value="true"/>
+       </bean>
+
+</beans>
