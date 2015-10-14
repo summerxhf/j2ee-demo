@@ -12,6 +12,11 @@
         <module>spring-quartz</module>
         <module>java-timer</module>
         <module>java-while-sleep</module>
+        <module>dubboServiceDemo</module>
+        <module>dubboClientDemo</module>
+        <module>zkui-master</module>
+        <module>zookeeperDemo</module>
+
     </modules>
 
 
