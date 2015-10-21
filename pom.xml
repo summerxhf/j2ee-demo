@@ -16,6 +16,9 @@
         <module>dubboClientDemo</module>
         <module>zkui-master</module>
         <module>zookeeperDemo</module>
+        <module>solr-query-demo</module>
+        <module>solr-demo</module>
+        <module>find-strings</module>
 
     </modules>
 

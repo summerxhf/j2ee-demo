@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-lazy-init="true">
+    <!--懒加载,使用的时候再加载(default-lazy-init="true") -->
+    <bean id="jdbcTemplateForBook" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="search_book_slave_dataSource"/>
+    </bean>
+
+    <!-- 定义数据源-->
+    <!-- parent 定义主从数据库-->
+    <bean id="search_book_slave_dataSource" parent="parentDataSource">
+        <property name="jdbcUrl">
+            <value>${book.slave.jdbc.url}</value>
+        </property>
+        <property name="user">
+            <value>${book.slave.jdbc.username}</value>
+        </property>
+        <property name="password">
+            <value>${book.slave.jdbc.password}</value>
+        </property>
+    </bean>
+    <!-- parent 数据源相关定义,使用Apache DBCP 连接池 -->
+    <bean id="parentDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="minPoolSize" value="20"/>
+        <property name="maxPoolSize" value="500"/>
+        <property name="maxIdleTime" value="30"/>
+        <property name="maxStatements" value="0"/>
+        <property name="acquireIncrement" value="5"/>
+        <property name="idleConnectionTestPeriod" value="60"/>
+        <property name="acquireRetryAttempts" value="30"/>
+        <property name="breakAfterAcquireFailure" value="false"/>
+        <property name="numHelperThreads" value="5"/>
+        <property name="acquireRetryDelay" value="500"/>
+        <property name="autoCommitOnClose" value="true"/>
+        <property name="propertyCycle" value="300"/>
+        <property name="checkoutTimeout" value="5000"/>
+    </bean>
+
+    <!-- 加载properties 配置文件 -->
+    <bean id="propertiesManager" class="com.hf.solr.util.DecryptPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>config.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="utf-8"/>
+    </bean>
+
+    <!-- 全文检索服务-->
+    <import resource="classpath*:/config/spring_solr.xml" />
+
+</beans>

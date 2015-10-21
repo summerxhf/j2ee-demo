@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+        >
+
+    <!-- 线程池配置-->
+    <bean id="poolConfig" class="com.hf.solr.util.PoolConfig">
+        <property name="corePoolSize" value="100"/>
+        <property name="maxPoolSize" value="200"/>
+        <property name="poolName" value="mmm-pool"/>
+        <property name="queueSize" value="5000"/>
+        <property name="qlthreshold" value="80"/>
+        <property name="keepAliveTime" value="10000"/>
+    </bean>
+
+    <!--线程池管理器-->
+    <bean id="threadPoolManager" class="com.hf.solr.threadManager.ThreadPoolManager" init-method="init" destroy-method="destory">
+        <property name="poolConfig" ref="poolConfig"/>
+    </bean>
+    
+    <!--搜索服务器-->
+    <!-- book搜索服务器,destroy-method 初始化和销毁时要调用的函数-->
+    <bean id="bookSolrServer" class="com.hf.solr.solrManagerImpl.BookSolrServer" init-method="start" destroy-method="destorySolrServer">
+        <property name="coreName" value="collection1"/>
+        <property name="zkHosts" value="127.0.0.1:2181"/>
+        <property name="threadPoolManager" ref="threadPoolManager"/>
+        <property name="range" value="5000"/>
+    </bean>
+
+    <bean id="bookSearchTaskRunner" class="com.hf.solr.BookSearchTaskRunner"/>
+    <bean id="searchFullText" class="com.hf.solr.solrManagerImpl.SolrSearchFullTextImpl"/>
+
+    <!-- 索引定时执行-->
+
+    <bean id="bookSearchTaskRunnerJob" class="com.hf.solr.BookSearchTaskRunner"/>
+
+    <bean id="searchBookDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" lazy-init="false">
+        <property name="targetObject" ref="bookSearchTaskRunnerJob" /> <!--自定义bean name -->
+        <property name="targetMethod" value="run" />
+        <property name="concurrent" value="false" />
+    </bean>
+
+    <bean id="searchBarJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="searchBookDetail" />
+        <property name="cronExpression">
+            <!--每天凌晨三点执行一次 -->
+            <!--<value>0 0 3 * * ?</value>-->
+            <value>0/5 * * * * ?</value>
+        </property>
+    </bean>
+
+</beans>
