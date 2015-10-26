@@ -17,5 +17,7 @@ public class SolrMain {
         searchBarTaskRunner.run();
         System.out.println("索引结束.");
         System.out.println("输出");
+        System.out.println("输出1");
+        System.out.println("输出2");
     }
 }
