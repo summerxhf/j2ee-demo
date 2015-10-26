@@ -17,5 +17,20 @@ public class SolrMain {
         System.out.println("开始执行索引初始化...");
         searchBarTaskRunner.run();
         System.out.println("索引结束.");
+        System.out.println("输出");
+        System.out.println("输出1");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出2");
+        System.out.println("输出5");
+        System.out.println("输出5");
+        System.out.println("输出5");
+        System.out.println("输出5");
+        System.out.println("输出5");
     }
 }
