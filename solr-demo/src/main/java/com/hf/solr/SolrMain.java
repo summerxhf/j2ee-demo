@@ -16,5 +16,6 @@ public class SolrMain {
         System.out.println("开始执行索引初始化...");
         searchBarTaskRunner.run();
         System.out.println("索引结束.");
+        System.out.println("输出");
     }
 }
