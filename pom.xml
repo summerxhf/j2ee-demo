@@ -25,6 +25,7 @@
         <module>java-generic</module>
         <module>java-return</module>
         <module>java-json</module>
+        <module>java-collection-sort</module>
 
     </modules>
 
