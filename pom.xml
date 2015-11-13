@@ -23,6 +23,8 @@
         <module>iterator-demo</module>
         <module>date-java</module>
         <module>java-generic</module>
+        <module>java-return</module>
+        <module>java-json</module>
 
     </modules>
 

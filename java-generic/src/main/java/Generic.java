@@ -4,6 +4,7 @@
  */
 public class Generic {
     public <T> T getObject(Class<T> c) throws InstantiationException,IllegalAccessException{
+
         //创建泛型对象.
         T t = c.newInstance();
         return t;

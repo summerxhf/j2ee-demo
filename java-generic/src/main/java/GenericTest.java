@@ -11,6 +11,7 @@ public class GenericTest  {
 
         //判断obj的类型是否指定user类型.
         System.out.println(obj instanceof User);
-    }
 
+
+    }
 }
