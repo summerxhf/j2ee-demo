@@ -26,6 +26,11 @@
         <module>java-return</module>
         <module>java-json</module>
         <module>java-collection-sort</module>
+        <module>j2ee-rabbitmq</module>
+        <module>java-null-test</module>
+        <module>java-findStrings-count</module>
+        <module>html-to-text</module>
+        <module>java-comment</module>
 
     </modules>
 

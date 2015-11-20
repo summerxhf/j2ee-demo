@@ -60,7 +60,7 @@ public class BMTest {
         String s = "faabc99999999999999999999999999999999999999999999999999999999999999999999999999999999999"
                 +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
                 +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
-                +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
+                +"afdasdfabcasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
                 +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf";//总串
         String t = "abc";//匹配串.
 

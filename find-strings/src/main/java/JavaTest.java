@@ -4,7 +4,7 @@
  */
 public class JavaTest {
     public static void main(String[] args) {
-        String a = "asdfasgdghsdfhfdsgsdfasdfasdfcc";
+        String a = "asdfasgdghsdfhfdsccgsdfasdfasdfcc";
         int weizhi = a.indexOf("cc");
 
         System.out.println(weizhi);

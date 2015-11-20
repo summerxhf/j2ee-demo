@@ -7,7 +7,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Description:
+ * Description:list to json
  * Created  2015/11/5 15:55  by xinghaifang
  */
 public class ListToJson {

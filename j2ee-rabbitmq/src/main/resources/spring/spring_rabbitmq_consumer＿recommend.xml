@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.1.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 添加吧对应的推荐吧queue -->
+	<rabbit:queue id="addBarRecommendListenerSequenceQueue" name="book.add">
+		<rabbit:queue-arguments>
+			<entry key="x-ha-policy" value="all" />
+		</rabbit:queue-arguments>
+	</rabbit:queue>
+	<!--监听生产者发送的消息开始 -->
+	<bean id="addBookListener" class="hf.listener.AddBookListener"></bean>
+	<bean id="rabbitMqErrorHandler" class="hf.listener.RabbitMqErrorHandler" />
+		
+	<rabbit:listener-container connection-factory="rabbitConnectionFactory" message-converter="jsonMessageConverter"  channel-transacted="false" error-handler="rabbitMqErrorHandler"  concurrency="1">
+		<rabbit:listener queues="book.add" ref="addBookListener" method="handleMessage" />
+	</rabbit:listener-container>
+</beans>

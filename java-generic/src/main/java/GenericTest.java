@@ -1,5 +1,5 @@
 /**
- * Description:
+ * Description:泛型
  * Created  2015/11/4 13:01  by xinghaifang
  */
 public class GenericTest  {

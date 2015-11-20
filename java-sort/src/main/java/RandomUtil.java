@@ -58,8 +58,10 @@ public class RandomUtil {
 //...
         int[] idx = RandomUtil.getLotteryArray(0, 49, 10 /*取几个*/);
 //        Integer is = new Integer[idx.length];
+
+        System.out.print(idx.length);
         for (int i = 0;i<idx.length;i++) {
-            System.out.println(idx[i]);
+//            System.out.println(idx[i]);
         }
       /*  final int N = 10000;  //测试次数
         for (int i = 0; i < N; ++i) {

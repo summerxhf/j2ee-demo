@@ -11,7 +11,7 @@ import java.util.List;
 public class CollectionSortDemo {
     public static void main(String[] args) {
         List<Book> bookList = new ArrayList<Book>();
-        for(int i = 0;i<=10;i++){
+        for(int i = 0;i<=2000;i++){
             Book book  = new Book();
             if(i<5){
                 book.setBookId(i);
@@ -19,8 +19,8 @@ public class CollectionSortDemo {
                 book.setBookPages(11+i);
             }else {
                 book.setBookId(i);
-                book.setBookNums(11-i);
-                book.setBookPages(11-i);
+                book.setBookNums(2000-i);
+                book.setBookPages(2000-i);
             }
             bookList.add(book);
         }

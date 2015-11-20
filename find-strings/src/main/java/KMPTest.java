@@ -20,8 +20,8 @@ public class KMPTest {
             String s = "faabc99999999999999999999999999999999999999999999999999999999999999999999999999999999999"
                     +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
                     +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
-                    +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
-                    +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf";
+                    +"afdasdfasdfasdfabcsdfasdfljasdlgjasld;fjasdfasdfasdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf"
+                    +"afdasdfasdfasdfasdfasdfljasdlgjasld;fjasdfasdfaabcsdfasdfasdfasghrtjhdgfsdfgsdfgsdfgsdfgsdfgsdf";
             String t = "abc";
             char[] ss = s.toCharArray();
             char[] tt = t.toCharArray();

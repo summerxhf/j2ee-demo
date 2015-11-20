@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 /**
- * Description:
+ * Description:实体
  * Created  2015/11/5 15:55  by xinghaifang
  */
 public class Person  implements Serializable {
