@@ -31,6 +31,7 @@
         <module>java-findStrings-count</module>
         <module>html-to-text</module>
         <module>java-comment</module>
+        <module>git-test</module>
 
     </modules>
 
