@@ -3,6 +3,7 @@
  * Created  2015/11/24 15:02  by xinghaifang
  */
 public class Book {
+    //书籍id
     private String bookId;
     private String bookName;
 
