@@ -13,5 +13,6 @@ public class ServiceMain {
         context.start();
         //让服务处于一直启动状态.输入停止服务
         System.in.read();
+        //测试代码
     }
 }

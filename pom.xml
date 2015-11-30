@@ -32,6 +32,7 @@
         <module>html-to-text</module>
         <module>java-comment</module>
         <module>git-test</module>
+        <module>log4j-test</module>
 
     </modules>
 
