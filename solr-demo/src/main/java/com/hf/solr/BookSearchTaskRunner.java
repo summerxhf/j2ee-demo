@@ -21,16 +21,15 @@ import java.util.concurrent.TimeUnit;
  */
 @Service(value = "bookSearchTaskRunner")
 public class BookSearchTaskRunner {
-    private static Logger logger = LoggerFactory.getLogger(BookSearchTaskRunner.class);
-    @Autowired
-    private SolrSearchFullText solrSearchFullText;
-
     private static final int THREAD_KEEP_ALIVE_TIME = 300;
     private static final int THREAD_CORE_SIZE = 20;
     private static final int THREAD_MAX_SIZE = 100;
     private static final int THREAD_QUEQE_SIZE = 500;
-    private ThreadPoolExecutor tpExcuter = null;
+    private static Logger logger = LoggerFactory.getLogger(BookSearchTaskRunner.class);
     private static int LIMIT = 30000;
+    @Autowired
+    private SolrSearchFullText solrSearchFullText;
+    private ThreadPoolExecutor tpExcuter = null;
     private int start = 0;
 
     public void run(){
