@@ -11,6 +11,7 @@ import java.util.List;
  * Created  2015/11/5 15:55  by xinghaifang
  */
 public class ListToJson {
+    //编码
     private static final String DEFAULT_CHARSET_NAME = "UTF-8";
 
     public static <T> String serialize(T object) {
