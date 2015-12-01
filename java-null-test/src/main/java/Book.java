@@ -3,6 +3,7 @@
  * Created  2015/11/16 18:13  by xinghaifang
  */
 public class Book {
+    //bookid 2015年12月1日14:23:36
    private String bookId;
     private String bookName;
     public String getBookName() {
