@@ -4,7 +4,6 @@ import com.hf.solr.model.Book;
 import com.hf.solr.model.SearchResult;
 import com.hf.solr.solrManager.SolrSearchFullText;
 import com.hf.solr.solrManager.SolrServerManager;
-import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -21,7 +20,7 @@ public class SolrSearchFullTextImpl implements SolrSearchFullText {
     private SolrServerManager bookSolr;
 
     @Override
-    public void createBookIndex(Book book) {
+    public void createBookIndex(Book Book) {
 
     }
 
