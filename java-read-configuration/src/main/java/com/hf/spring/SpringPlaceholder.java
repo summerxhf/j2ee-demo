@@ -45,6 +45,7 @@ public class SpringPlaceholder  extends PropertyPlaceholderConfigurer {
      */
     public void loadProperties(Properties properties) throws IOException{
         //系统 配置文件存放路径
+        //linux String systemBasePath = "/etc/xhf/testconfigs";
         String systemConfigPath = "D:\\\testConfig";
         if(this.locations!=null){
             PropertiesPersister propertiesPersister = new DefaultPropertiesPersister();
