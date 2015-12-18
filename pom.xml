@@ -33,6 +33,7 @@
         <module>java-comment</module>
         <module>java-read-configuration</module>
         <module>mybatis-generator</module>
+        <module>java-threads</module>
 
     </modules>
 
