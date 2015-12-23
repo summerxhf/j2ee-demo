@@ -11,8 +11,8 @@ public class test {
         Random rd = new Random();
 
         //1000次抽奖显示。
-        for (int i = 0;i<1000;i++){
-            nTemp = rd.nextInt(10000);
+        for (int i = 0;i<10;i++){
+            nTemp = rd.nextInt(10);
 
             System.out.println("第 "+i+" 次抽奖,中奖名次为"+nTemp);
         }

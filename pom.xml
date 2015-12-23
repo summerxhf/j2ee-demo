@@ -34,6 +34,7 @@
         <module>java-read-configuration</module>
         <module>mybatis-generator</module>
         <module>java-threads</module>
+        <module>java-getGift-Random</module>
 
     </modules>
 

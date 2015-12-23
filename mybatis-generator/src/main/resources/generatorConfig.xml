@@ -88,7 +88,7 @@
 
 
         <!-- tableName 为表名. schema 为数据库名称-->
-        <table tableName="audition_author" schema="bookbar">
+        <table tableName="audition_lottery" schema="bookbar">
 
             <!-- optional   , only for mybatis3 runtime
                  自动生成的键值（identity,或者序列值）
@@ -109,7 +109,7 @@
 
             -->
             <!--<generatedKey column="" sqlStatement="" identity="" type=""/>-->
-            <generatedKey column="author_id" sqlStatement="MySql" identity="true" />
+            <!--<generatedKey column="vote_info_id" sqlStatement="MySql" identity="true" />-->
 
             <!-- optional.
                     列的命名规则：
