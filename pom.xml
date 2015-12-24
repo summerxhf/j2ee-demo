@@ -35,6 +35,7 @@
         <module>mybatis-generator</module>
         <module>java-threads</module>
         <module>java-getGift-Random</module>
+        <module>getPrize</module>
 
     </modules>
 
