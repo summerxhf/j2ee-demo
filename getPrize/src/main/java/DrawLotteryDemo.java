@@ -1,3 +1,5 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +39,7 @@ public class DrawLotteryDemo {
 
             //1.2.3 否则就送一个,第二个人来的话,看剩余量和时间
             //1.2.4 把这个释放时间更新到db中.
-            //awardBatch.getAwardBatchId();
+            //awardBatch.getAwardBatchId();或者在调用这个方法的时候执行中奖时间更新.
             return awardBatch;
 
     }
@@ -78,10 +80,21 @@ public class DrawLotteryDemo {
         throw new RuntimeException("没有奖品了.");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Random random = new Random(5);
         int num = random.nextInt(5);
-        System.out.println(num);
+//        System.out.println(num);
+
+
+        Random myRandom = new Random(new Date().getTime());
+        System.out.println(Math.abs(myRandom.nextLong()));
+        //时间戳转化为Sting或Date
+        SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String d = format.format(myRandom.nextLong());
+        Date date=format.parse(d);
+        System.out.println("Format To String(Date):"+d);
+        System.out.println("Format To Date:"+date);
+//        long releaseTime = startTimeTimestamp + (awardBatch.getAmount() - awardBatch.getBalance())*timeInterval + Math.abs(myRandom.nextLong())%timeInterval;
     }
 
 }
