@@ -78,8 +78,4 @@ public class AwardBatch {
         this.strDate = strDate;
     }
 
-
-
-
-
 }

@@ -94,7 +94,7 @@ public class DrawLotteryDemo {
         Date date=format.parse(d);
         System.out.println("Format To String(Date):"+d);
         System.out.println("Format To Date:"+date);
-//        long releaseTime = startTimeTimestamp + (awardBatch.getAmount() - awardBatch.getBalance())*timeInterval + Math.abs(myRandom.nextLong())%timeInterval;
+//      long releaseTime = startTimeTimestamp + (awardBatch.getAmount() - awardBatch.getBalance())*timeInterval + Math.abs(myRandom.nextLong())%timeInterval;
     }
 
 }

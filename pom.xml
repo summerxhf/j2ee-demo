@@ -36,6 +36,9 @@
         <module>java-threads</module>
         <module>java-getGift-Random</module>
         <module>getPrize</module>
+        <module>xhf-draw-lottery</module>
+        <module>redis</module>
+        <module>HashMap-demo</module>
 
     </modules>
 

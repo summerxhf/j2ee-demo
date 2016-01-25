@@ -1,6 +1,3 @@
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -13,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * Created  2015/12/17 16:32  by xinghaifang
  */
 public class AutoUpdateDataWorkerImpl implements AutoUpdateDataWorker{
-    protected final Log logger = LogFactory.getLog(this.getClass());
+//    protected final Log logger = LogFactory.getLog(this.getClass());
 
     private static int pageSize = 5;
     //最多可初始化的线程的数量。
