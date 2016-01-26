@@ -675,11 +675,11 @@ public class HashMap<K,V>
      * Iterator.remove、Set.remove、removeAll、retainAll 和 clear 操作
      * 可从该映射中移除相应的映射关系。它不支持 add 或 addAll 操作。
      */
-    public Set<K> keySet() {
-        Set<K> ks = KeySet;
-        // 如果keySet为空，则通过新建一个KeySet
-        return (ks != null ? ks : (KeySet = new KeySet()));
-    }
+//    public Set<K> keySet() {
+//        Set<K> ks = KeySet;
+//        // 如果keySet为空，则通过新建一个KeySet
+//        return (ks != null ? ks : (KeySet = new KeySet()));
+//    }
 
     // 内部类KeySet
     private final class KeySet extends AbstractSet<K> {
@@ -713,10 +713,10 @@ public class HashMap<K,V>
      * 通过 Iterator.remove、Collection.remove、removeAll、retainAll 和 clear 操作
      * 可从该映射中移除相应的映射关系。它不支持 add 或 addAll 操作。
      */
-    public Collection<V> values() {
-        Collection<V> vs = Values;
-        return (vs != null ? vs : (Values = new Values()));
-    }
+//    public Collection<V> values() {
+//        Collection<V> vs = Values;
+//        return (vs != null ? vs : (Values = new Values()));
+//    }
 
     // 内部类Values
     private final class Values extends AbstractCollection<V> {

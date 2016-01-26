@@ -11,7 +11,7 @@ public class HashMapDemo {
         //向map中存入值.
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("key","value");
-        for(int i = 0 ;i<20;i++){
+        for(int i = 0 ;i<66;i++){
             map.put("key"+i,"key"+i);
         }
 
@@ -90,5 +90,11 @@ public class HashMapDemo {
         Integer mapSize = map.size();
         System.out.println("map大小为:"+ mapSize );
 
+        //12 在key中放入新的值,会返回旧值.
+
+        Map<String,String> map4 = new HashMap<String,String>();
+        map4.put("myKeyTest","myKeyTest");
+        Object object = map4.put("myKeyTest","hhhhhh");
+        System.out.print(object.toString());
     }
 }

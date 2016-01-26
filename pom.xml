@@ -39,6 +39,7 @@
         <module>xhf-draw-lottery</module>
         <module>redis</module>
         <module>HashMap-demo</module>
+        <module>HashTable-demo</module>
 
     </modules>
 
