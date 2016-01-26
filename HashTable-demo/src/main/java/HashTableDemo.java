@@ -28,6 +28,7 @@ public class HashTableDemo {
         while(enumeration.hasMoreElements()){
 
             String key = enumeration.nextElement();
+//            hashtable.put("aa","aa");
             System.out.println(key);
             System.out.println(hashtable.get(key));
 
@@ -39,6 +40,7 @@ public class HashTableDemo {
         Enumeration<String>  enumeration1 = hashtable.elements();
         while (enumeration1.hasMoreElements()){
             String value = enumeration1.nextElement();
+
             System.out.println("方式二"+ value);
         }
         end = System. currentTimeMillis();
@@ -62,6 +64,7 @@ public class HashTableDemo {
         Iterator<Map.Entry<String,String>> iterator1 = hashtable.entrySet().iterator();
         while (iterator1.hasNext()){
             Map.Entry<String,String > entry =  iterator1.next();
+
             System.out.println("方式四 key为:"+ entry.getKey());
             System.out.println("方式四 value为:"+ entry.getValue());
         }
