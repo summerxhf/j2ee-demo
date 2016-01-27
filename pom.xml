@@ -40,6 +40,7 @@
         <module>redis</module>
         <module>HashMap-demo</module>
         <module>HashTable-demo</module>
+        <module>CurrentHashMap-demo</module>
 
     </modules>
 
