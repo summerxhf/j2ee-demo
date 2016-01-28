@@ -18,9 +18,11 @@ public class MapConcurrenceDemo {
         }
     }
     public static void main(String[] args) {
-//        new Thread(new MapListThread(map)).start();
-//        new Thread(new MapRemoveThread(map)).start();
+        //demo 1 CurrentHashMap
+        //new Thread(new MapListThread(map)).start();
+        //new Thread(new MapRemoveThread(map)).start();
 
+        //demo 2
         final Map<String, String> map = new HashMap<String, String>();
 
         Thread t = new Thread(new Runnable() {
@@ -37,10 +39,8 @@ public class MapConcurrenceDemo {
                             map.put(key, "value" + key);
                             System.out.println(map.get(key).toString());
                         }
-
                     }, "ftf" + i).start();
 //                    System.out.println("第几次循环,循环次数为:"+i);
-
                 }
 
             }
@@ -54,7 +54,6 @@ public class MapConcurrenceDemo {
         }catch (InterruptedException e){
             e.printStackTrace();
         }
-
     }
 }
 
@@ -68,11 +67,11 @@ class MapListThread implements Runnable{
         while(iter.hasNext()){
             iter.next();
             System.out.println(iter.next());
-//            try {
-//                Thread.sleep(5);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
@@ -86,11 +85,11 @@ class MapRemoveThread implements Runnable{
         for(int i=2;i<9;i++){
             String str = String.valueOf(i);
             map.remove(str);
-//            try {
-//                Thread.sleep(5);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("Remove OK. map.size:"+map.size());
     }
