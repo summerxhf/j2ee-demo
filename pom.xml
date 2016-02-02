@@ -41,6 +41,7 @@
         <module>HashMap-demo</module>
         <module>HashTable-demo</module>
         <module>CurrentHashMap-demo</module>
+        <module>java-equals</module>
 
     </modules>
 

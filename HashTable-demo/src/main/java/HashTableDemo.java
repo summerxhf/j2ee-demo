@@ -1,7 +1,4 @@
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Description:java集合Hashtable
@@ -22,6 +19,7 @@ public class HashTableDemo {
         //　keySet() - returns a Set of the keys
         //　entrySet() - returns a Set of the mappings
         //  elements() - returns an Enumeration of the values of this Hashtable
+
         //1 使用key遍历.
         start = System.currentTimeMillis();
         Enumeration<String> enumeration = hashtable.keys();
@@ -52,6 +50,7 @@ public class HashTableDemo {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
             String key = iterator.next();
+            hashtable.put("aa","aa");
             System.out.println("方式三 key为:"+key + "value 为: " + hashtable.get(key));
         }
 

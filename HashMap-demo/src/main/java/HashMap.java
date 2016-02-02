@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * hashMap 源码
+ * @param <K>
+ * @param <V>
+ */
 public class HashMap<K,V>
         extends AbstractMap<K,V>
         implements Map<K,V>, Cloneable, Serializable

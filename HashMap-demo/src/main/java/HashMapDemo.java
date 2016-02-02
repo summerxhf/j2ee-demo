@@ -19,6 +19,7 @@ public class HashMapDemo {
         Iterator iterator = map.entrySet().iterator();
         while (iterator.hasNext()){
             Map.Entry entry = (Map.Entry)iterator.next();
+            map.put("aa","aa");
             Object Key = entry.getKey();
             Object value = entry.getValue();
             System.out.println("1 循环输出key为:"+Key+" value为:"+value);
