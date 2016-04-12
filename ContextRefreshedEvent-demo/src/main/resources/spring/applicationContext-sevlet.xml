@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc
+  http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+  http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <mvc:resources location="/assets/css/" mapping="/assets/img/**"/>
+    <mvc:resources location="/assets/font-awesome/" mapping="/assets/font-awesome/**"/>
+    <mvc:resources location="/assets/fonts/" mapping="/assets/fonts/**"/>
+    <mvc:resources location="/assets/images/" mapping="/assets/images/**"/>
+    <mvc:resources location="/assets/js/" mapping="/assets/js/**"/>
+
+    <!-- fix @ResponseBody utf-8 issue should be first -->
+    <bean  class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="order" value="0" />
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <bean class="org.springframework.http.MediaType">
+                                <constructor-arg index="0" value="text"></constructor-arg>
+                                <constructor-arg index="1" value="plain"></constructor-arg>
+                                <constructor-arg index="2" value="UTF-8"></constructor-arg>
+                            </bean>
+                            <bean class="org.springframework.http.MediaType">
+                                <constructor-arg index="0" value="*"></constructor-arg>
+                                <constructor-arg index="1" value="*"></constructor-arg>
+                                <constructor-arg index="2" value="UTF-8"></constructor-arg>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <!-- Support JSON -->
+                <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                    <property name="features">
+                        <array>
+                            <ref bean="fastJsonMapNull" />
+                            <ref bean="fastJsonWriteNullString" />
+                        </array>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="fastJsonMapNull" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue" />
+    </bean>
+    <bean id="fastJsonWriteNullString" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty" />
+    </bean>
+
+    <!-- ZK configuration : extends PropertyPlaceholderConfigurer -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="fileEncoding" value="UTF-8" />
+        <property name="locations">
+            <list>
+                <value>classpath:prop/editor.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <mvc:annotation-driven/>
+    <aop:aspectj-autoproxy/>
+
+    <mvc:default-servlet-handler/>
+
+    <!--<mvc:interceptors>
+        &lt;!&ndash; 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 &ndash;&gt;
+        &lt;!&ndash;<bean class="com.dangdang.dpp.component.aspect.UserValidInterceptor"/> &ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/user/login"/>
+            <bean class="com.dangdang.dpp.component.aspect.UserValidInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+    <mvc:interceptors>
+        <!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
+        <bean class="com.dangdang.dpp.component.aspect.UserValidInterceptor"/>
+    </mvc:interceptors>
+
+    <context:component-scan base-package="com.dangdang.dpp"/>
+
+    <bean id="multipartResolver" class="com.dangdang.dpp.component.resolver.CommonsMultipartResolverWithLog"/>
+
+</beans>

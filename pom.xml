@@ -42,6 +42,8 @@
         <module>HashTable-demo</module>
         <module>CurrentHashMap-demo</module>
         <module>java-equals</module>
+        <module>ContextRefreshedEvent-demo</module>
+        <module>linuxLongTime</module>
 
     </modules>
 
