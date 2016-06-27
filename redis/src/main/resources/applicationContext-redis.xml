@@ -26,7 +26,7 @@
 		<property name="database" value="9" />
 	</bean>
 
-	<bean id="masterRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connection-factory-ref="masterJedisConnectionFactory">
+	<bean id="masterRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connectionFactory-ref="masterJedisConnectionFactory">
 		<property name="keySerializer" ref="stringRedisSerializer"/>
 		<property name="hashKeySerializer" ref="stringRedisSerializer"/>
 	</bean>
@@ -47,7 +47,7 @@
 		<property name="database" value="9" />
 	</bean>
 
-	<bean id="slaveRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connection-factory-ref="slaveJedisConnectionFactory">
+	<bean id="slaveRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connectionFactory-ref="slaveJedisConnectionFactory">
 		<property name="keySerializer" ref="stringRedisSerializer"/>
 		<property name="hashKeySerializer" ref="stringRedisSerializer"/>
 	</bean>
